@@ -1,0 +1,29 @@
+# Ignorar archivos por extensión
+*.ipynb
+*.csv
+*.csv.gz
+*.xlsx
+*.txt
+*.pdf
+*.DAT
+*.lnk
+*.exe
+
+# Ignorar carpetas específicas
+/.anaconda/
+/.conda/
+/.ipython/
+/.jupyter/
+/.vscode/
+/anaconda3/
+/Documents/
+/Downloads/
+/Music/
+/Videos/
+/OneDrive/
+/AppData/
+
+# Ignorar archivos temporales de sistema
+desktop.ini
+Thumbs.db
+.DS_Store
