@@ -424,7 +424,7 @@ EV_evaluate_conclase_gan <- function( pinputexps )
 # Este es el  Workflow Baseline
 # Que predice 202106 donde SI hay clase completa
 
-wf_canaritos4 <- function( pnombrewf )
+wf_canaritos5<- function( pnombrewf )
 {
   param_local <- exp_wf_init( pnombrewf ) # linea workflow inicial fija
 
@@ -443,7 +443,7 @@ wf_canaritos4 <- function( pnombrewf )
     mtry_ratio= 0.2
   )
 
-  CN_canaritos_asesinos_base(ratio=0.2, desvio=1)
+  CN_canaritos_asesinos_base(ratio=0.2, desvio=2)
 
   # Etapas modelado
   ts6 <- TS_strategy_base6()
@@ -461,5 +461,5 @@ wf_canaritos4 <- function( pnombrewf )
 # Aqui comienza el programa
 
 # llamo al workflow con future = 202106
-wf_canaritos4()
+wf_canaritos5()
 
