@@ -264,7 +264,7 @@ TS_strategy_base8 <- function( pinputexps )
 
   param_local$meta$script <- "/src/wf-etapas/z2101_TS_training_strategy.r"
 
-  param_local$future <- c(202108)
+  param_local$future <- c(202109)
 
   param_local$final_train$undersampling <- 1.0
   param_local$final_train$clase_minoritaria <- c("BAJA+2")
@@ -295,7 +295,7 @@ TS_strategy_base8 <- function( pinputexps )
 
   param_local$meta$script <- "/src/wf-etapas/z2101_TS_training_strategy.r"
 
-  param_local$future <- c(202108)
+  param_local$future <- c(202109)
 
   param_local$final_train$undersampling <- 0.02
   param_local$final_train$clase_minoritaria <- c("BAJA+2")
@@ -477,7 +477,7 @@ KA_evaluate_kaggle_semillerio <- function( pinputexps )
 # Que predice 202107 donde conozco la clase
 # y ya genera graficos
 
-wf_SEMI_ago_orden227_rank_cero_fijo_sin_cuarentena_sin202104_euge <- function( pnombrewf )
+wf_SEMI_sept_orden227_rank_cero_fijo_sin_cuarentena_sin202104_euge <- function( pnombrewf )
 {
   param_local <- exp_wf_init( pnombrewf ) # linea fija
 
@@ -517,5 +517,5 @@ wf_SEMI_ago_orden227_rank_cero_fijo_sin_cuarentena_sin202104_euge <- function( p
 #------------------------------------------------------------------------------
 # Aqui comienza el programa
 
-# llamo al workflow con future = 202108
-wf_SEMI_ago_orden227_rank_cero_fijo_sin_cuarentena_sin202104_euge()
+# llamo al workflow con future = 202109
+wf_SEMI_sept_orden227_rank_cero_fijo_sin_cuarentena_sin202104_euge()
