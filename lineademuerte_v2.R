@@ -91,9 +91,11 @@ dataset[, azar:=runif(nrow(dataset))]
 dfuture <- dataset[foto_mes==202109]
 
 # undersampling de los CONTINIA al 8%
-dataset[, fold_train :=  foto_mes<= 202107 &
-    (clase_ternaria %in% c("BAJA+1", "BAJA+2") |
-     azar < 0.02 ) ]
+dataset[, fold_train := foto_mes <= 202107 & !(foto_mes %in% c(202006, 202004, 202003, 202005, 202104, 201910, 201905))]
+
+#&
+#    (clase_ternaria %in% c("BAJA+1", "BAJA+2") |
+#     azar < 0.02 ) ]
 
 dataset[, clase01 := ifelse( clase_ternaria=="CONTINUA", 0, 1 )]
 
