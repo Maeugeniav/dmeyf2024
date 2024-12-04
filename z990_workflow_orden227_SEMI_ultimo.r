@@ -97,44 +97,35 @@ CA_catastrophe_base <- function( pinputexps, metodo )
 # deterministico, SIN random
 
 FEintra_manual_base <- function( pinputexps )
-{
-  if( -1 == (param_local <- exp_init())$resultado ) return( 0 ) # linea fija
-  
-  
-  param_local$meta$script <- "/src/wf-etapas/z1301_FE_intrames_manual.r"
-  
-  # Normalización de ctrx_quarter en función de cliente_antiguedad
-  if (atributos_presentes(c("ctrx_quarter"))) {
-    dataset[, ctrx_quarter_normalizado := as.numeric(ctrx_quarter)]
+  FEintra_manual_base <- function( pinputexps )
+  {
+    if( -1 == (param_local <- exp_init())$resultado ) return( 0 ) # linea fija
+    
+    
+    param_local$meta$script <- "/src/wf-etapas/z1301_FE_intrames_manual.r"
+    
+    param_local$semilla <- NULL  # no usa semilla, es deterministico
+    
+    return( exp_correr_script( param_local ) ) # linea fija
   }
-  if (atributos_presentes(c("ctrx_quarter", "cliente_antiguedad"))) {
-    dataset[cliente_antiguedad == 1, ctrx_quarter_normalizado := ctrx_quarter * 5]
-    dataset[cliente_antiguedad == 2, ctrx_quarter_normalizado := ctrx_quarter * 2]
-    dataset[cliente_antiguedad == 3, ctrx_quarter_normalizado := ctrx_quarter * 1.2]
-  }
-  
-  param_local$semilla <- NULL # no usa semilla, es determinístico
-  
-  return(exp_correr_script(param_local)) # línea fija
-}
 #------------------------------------------------------------------------------
 # Data Drifting Baseline
 # deterministico, SIN random
 
-#DR_drifting_base <- function( pinputexps, metodo)
-#{
-#  if( -1 == (param_local <- exp_init())$resultado ) return( 0 ) # linea fija
+DR_drifting_base <- function( pinputexps, metodo)
+{
+  if( -1 == (param_local <- exp_init())$resultado ) return( 0 ) # linea fija
 
 
-#  param_local$meta$script <- "/src/wf-etapas/z1401_DR_corregir_drifting.r"
+  param_local$meta$script <- "/src/wf-etapas/z1401_DR_corregir_drifting.r"
 
 # valores posibles
 #  "ninguno", "rank_simple", "rank_cero_fijo", "deflacion", "estandarizar"
-#  param_local$metodo <- metodo
-#  param_local$semilla <- NULL  # no usa semilla, es deterministico
+  param_local$metodo <- metodo
+  param_local$semilla <- NULL  # no usa semilla, es deterministico
 
-#  return( exp_correr_script( param_local ) ) # linea fija
-#}
+  return( exp_correr_script( param_local ) ) # linea fija
+}
 #------------------------------------------------------------------------------
 # Feature Engineering Historico  Baseline
 # deterministico, SIN random
